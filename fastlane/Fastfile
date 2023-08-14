@@ -1,3 +1,3 @@
 lane :test do
-  gmail_notify(sender_email: "antonyleons@qburst.com", sender_password: "wilfpwcnrrzxdule", recipients: "antonyleons@qburst.com", cc: "antonyleons@qburst.com", subject: "hello world", template_file: "./mail_template.html", release_notes_file: "./release_notes.txt", placeholders: {:platform => "Android", :environment => "QA", :distribution_platform => "Firebase app distribution", :app_version => "1.0.0", :build_number => "100"})
+  gmail_notify()
 end

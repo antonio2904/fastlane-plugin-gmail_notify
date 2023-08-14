@@ -24,8 +24,8 @@ module Fastlane
             address: "smtp.gmail.com",
             port: "587",
             enable_starttls_auto: true,
-            user_name: params[:sender_email],
-            password: params[:sender_password],
+            user_name: params[:smtp_email],
+            password: params[:smtp_password],
             authentication: :plain, # :plain, :login, :cram_md5, no auth by default
             domain: "localhost.localdomain" # the HELO domain provided by the client to the server
           }
@@ -59,12 +59,12 @@ module Fastlane
 
       def self.available_options
         [
-          FastlaneCore::ConfigItem.new(key: :sender_email,
+          FastlaneCore::ConfigItem.new(key: :smtp_email,
                                        env_name: "GMAIL_NOTIFY_SENDER_EMAIL",
                                        description: "Gmail account to login with",
                                        optional: false,
                                        type: String),
-          FastlaneCore::ConfigItem.new(key: :sender_password,
+          FastlaneCore::ConfigItem.new(key: :smtp_password,
                                        env_name: "GMAIL_NOTIFY_SENDER_PASSWORD",
                                        description: "Password of Gmail account to login with",
                                        optional: false,

@@ -2,7 +2,7 @@ require "fastlane_core/ui/ui"
 require "erb"
 
 module Fastlane
-  UI = FastlaneCore::UI unless Fastlane.const_defined?("UI")
+  UI = FastlaneCore::UI unless Fastlane.const_defined?(:UI)
 
   module Helper
     class GmailNotifyHelper
@@ -44,7 +44,7 @@ module Fastlane
         if Gem::Version.new(RUBY_VERSION) >= Gem::Version.new("2.6.0")
           ERB.new(template, trim_mode: @trim_mode).result(binding)
         else
-          # ERB.new(template, nil, @trim_mode).result(binding)
+          ERB.new(template, nil, @trim_mode).result(binding)
         end
       end
     end

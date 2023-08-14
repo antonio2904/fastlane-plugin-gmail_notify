@@ -1,4 +1,5 @@
 require "fastlane/action"
+require "fastlane_core/configuration/config_item"
 require_relative "../helper/gmail_notify_helper"
 
 module Fastlane
@@ -8,11 +9,9 @@ module Fastlane
         UI.message("The gmail_notify plugin is working!")
 
         require 'pony'
+        require 'erb'
 
-        eth = Fastlane::Helper::ErbTemplateHelper
-        html_template = eth.load_from_path(params[:template_file])
-
-        body = eth.render(html_template, params[:placeholders])
+        body = ERB.new(File.read(params[:template_file]), trim_mode: nil).result_with_hash(params[:placeholders])
 
         Pony.mail({
           to: params[:recipients],
@@ -36,10 +35,8 @@ module Fastlane
       def self.test(params)
         UI.message("The gmail_notify plugin is working!")
 
-        eth = Fastlane::Helper::ErbTemplateHelper
-        html_template = eth.load_from_path(params[:template_file])
+        body = ERB.new(File.read(params[:template_file]), trim_mode: nil).result_with_hash(params[:placeholders])
 
-        body = eth.render(html_template, params[:placeholders])
         puts(body)
       end
 

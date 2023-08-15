@@ -14,13 +14,40 @@ fastlane add_plugin gmail_notify
 
 Sends a mail using SMTP
 
-**Note to author:** Add a more detailed description about this plugin here. If your plugin contains multiple actions, make sure to mention them here.
+`gmail_notify` allows you to send a gmail using smtp so that you can notify the team about a new release.
 
-## Example
+## Usage
 
-Check out the [example `Fastfile`](fastlane/Fastfile) to see how to use this plugin. Try it by cloning the repo, running `fastlane install_plugins` and `bundle exec fastlane test`.
+To get started you must have a gmail and [app password](https://knowledge.workspace.google.com/kb/how-to-generate-an-app-passwords-000009237) generated.
 
-**Note to author:** Please set up a sample project to make it easy for users to explore what your plugin does. Provide everything that is necessary to try out the plugin in this project (including a sample Xcode/Android project if necessary)
+```ruby
+gmail_notify(
+  smtp_email: "<sender email>",
+  smtp_password: "<app password>",
+  recipients: "<recipients comma separated>",
+  cc: "<cc>",
+  subject: "<gmail subject>",
+  template_file: "<path to mail template>",
+  placeholders: {
+    var1: "world"
+  }
+)
+```
+
+The mail body is constructed using a [html template](template.html) file. The value for variables in the template file can be provided in the placeholder hash.
+
+### Parameters
+
+| Key | Description |
+|-----------------|--------------------|
+| `smtp_email` | Email account for smtp authentication (Sender's email) |
+| `smtp_password` | Password for smtp authentication |
+| `recipients` | Comma separated list of recipients |
+| `cc` | Comma separated list of cc |
+| `subject` | Email subject |
+| `template_file` | Path to template file |
+| `placeholders` | Hash that contains value of variables in the template |
+
 
 ## Run tests for this plugin
 

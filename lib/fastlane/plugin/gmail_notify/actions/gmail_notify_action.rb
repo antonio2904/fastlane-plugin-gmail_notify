@@ -13,7 +13,10 @@ module Fastlane
 
         body = ERB.new(File.read(params[:template_file]), trim_mode: nil).result_with_hash(params[:placeholders])
 
-        Pony.mail({
+        begin
+          retries ||= 0
+
+          Pony.mail({
           to: params[:recipients],
           cc: params[:cc],
           subject: params[:subject],
@@ -30,6 +33,15 @@ module Fastlane
             domain: "localhost.localdomain" # the HELO domain provided by the client to the server
           }
         })
+        rescue Net::ReadTimeout
+          if (retries += 1) < 5
+            puts("retrying ##{retries}")
+            sleep(5)
+            retry
+          else
+            raise
+          end
+        end
       end
 
       def self.test(params)

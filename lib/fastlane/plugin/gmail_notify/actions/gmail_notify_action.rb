@@ -21,7 +21,7 @@ module Fastlane
           cc: params[:cc],
           subject: params[:subject],
           html_body: body,
-          attachments: { "lintReport.html" => File.read(:lint_report) },
+          attachments: { "lintReport.html" => File.read(params[:lint_report]) },
           body_part_header: { content_disposition: "inline" },
           via: :smtp,
           via_options: {

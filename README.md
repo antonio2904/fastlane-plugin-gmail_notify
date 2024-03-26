@@ -28,6 +28,7 @@ gmail_notify(
   cc: "<cc>",
   subject: "<gmail subject>",
   template_file: "<path to mail template>",
+  lint_report: "<path to lint report html file>",
   placeholders: {
     var1: "world"
   }
@@ -46,6 +47,7 @@ The mail body is constructed using a [html template](template.html) file. The va
 | `cc` | Comma separated list of cc |
 | `subject` | Email subject |
 | `template_file` | Path to template file |
+| `lint_report` | Path to lint report html file |
 | `placeholders` | Hash that contains value of variables in the template |
 
 

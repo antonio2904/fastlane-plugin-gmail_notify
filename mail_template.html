@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<head>
+  <style type="text/css" data-inline="true">
+    body,
+    th,
+    td {
+      border: 1px solid #d0d0d0;
+      border-collapse: collapse;
+      color: black;
+      padding-right: 40px;
+      padding-left: 15px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      text-align: left;
+    }
+
+    table {
+      border: 1px solid #d0d0d0;
+      border-collapse: collapse;
+      color: black;
+      text-align: left;
+    }
+
+    .brmedium {
+      display: block;
+      margin-bottom: 0.5em;
+    }
+
+    b {
+      color: black;
+    }
+
+    .multiline {
+      white-space: pre-wrap;
+    }
+
+    h3 {
+      color: black;
+    }
+
+    div {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div style="line-height:1.5;background-color:#f6f6f6;font-family:'Roboto',sans-serif;padding-top:20px;padding-bottom:20px">
+    <img src="https://ci4.googleusercontent.com/proxy/Qx-IZme75y0syUHV_jeNkP1zGcyBQBw-imLrzm5P7BPon2IkCszfnQ-xmM99KGNHFxXc1H8BpPW8OzjNHfuECQrWbRhGgF-s=s0-d-e1-ft#https://s3.amazonaws.com/aware-static-files/aware.png" alt="logo" style="display:block;margin-left:auto;margin-right:auto" class="CToWUd">
+    <div style="margin:18px 30px 30px 30px;background-color:#ffffff">
+      <div style="padding:10px 5px 10px 40px;background-color:#f17800;color:#ffffff;border-radius:6px 6px 0 0;font-size:22px"><%=platform%> App Release</div>
+      <div style="padding:25px 30px 15px 40px;background-color:#ffffff;color:#000000;border-bottom:1px solid #dddddd">Hi, <p>New version of AWARE Basestation <%=platform%> App (<%=environment%>) is available in <%=distribution_platform%>.</p>
+        <b> App Information: </b>
+        <span class="brmedium"></span>
+        <table>
+          <tbody>
+            <tr>
+              <td>App Name</td>
+              <td>AWARE <%=platform%></td>
+            </tr>
+            <tr>
+              <td>Platform</td>
+              <td><%=platform%></td>
+            </tr>
+            <tr>
+              <td>Environment</td>
+              <td><%=environment%></td>
+            </tr>
+            <tr>
+              <td>App Version</td>
+              <td><%=app_version%></td>
+            </tr>
+            <tr>
+              <td>Build Number</td>
+              <td><%=build_number%></td>
+            </tr>
+          </tbody>
+        </table>
+        <br>
+        <div>
+          <b>Release notes: </b>
+          <span class="brmedium"></span>
+        </div>
+        <div><%=release_notes%></div>
+      </div>
+      <div style="padding:15px;color:#808080;padding-left:40px">Note: This e-mail message was sent from a notification-only address that cannot accept incoming e-mail. <br>Please do not reply to this message. </div>
+    </div>
+    <div style="text-align:center">
+      <div>©2021 AWARE, Inc. All Rights Reserved</div>
+      <div>Terms of Use Privacy Policy</div>
+    </div>
+  </div>
+</body>
+</html>
